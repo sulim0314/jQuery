@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02</title>
+    <!-- jquery라이브러리 CDN방식으로 참조 ----------------------- -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- ------------------------------------------------------- -->
+    <script>
+        $(document).ready(function(){
+            //alert('Hi')
+            //1. 기본 선택자. 모든 요소를 선택해서 글자색을 blue로 줍시다
+            $("*").css('color','blue');
+
+            //2. 태그 선택자. $('태그명')
+            //h1태그를 선택해서 글자색을 purple로 주세요
+            $('h1').css('color','purple')
+            //h2,h3 선택해서 배경색을 gold로 주세요
+            $('h2,h3').css('background-color','gold')
+
+            //3. 아이디 선택자. $('#아이디명')
+            //아이디가 item 요소를 선택해서 테두리를 2px dashed green		
+            $('#item').css('border','2px dashed green')
+                      .css('padding','4px')
+
+            //4. 클래스 선택자. $('.클래스명')
+            //class가 target1, target2 선택해서
+            //테두리를 solid thick orange로 주고
+            //글자색은 lime으로
+            //글자 크기는 20pt로 주세요
+            $('.target1, .target2').css('border','solid thick orange')
+                                    .css('color','lime')
+                                    .css('font-size','20pt')
+
+
+            $('.target1').css({
+                'background-color':'pink',
+                'font-family':'sans-serif',
+                'color':'red',
+                'padding':'5px',
+                'border-radius':'5px'
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+<h1>jQuery기본선택자, 태그, 아이디, 클래스 선택자</h1>
+<h1>안녕하세요 jQuery1</h1>
+<h2>안녕하세요 jQuery2</h2>
+<h3>안녕하세요 jQuery3</h3>
+
+<p id="item">ID Selector: item</p>
+<p class="target1">Class Selector: target1</p>
+<p class="target2">Class Selector: target2</p>
+
+</body>
+</html>

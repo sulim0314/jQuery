@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01</title>
+    <!-- jquery라이브러리 참조--------------------------------- -->
+    <script type="text/javascript" src="./js/jquery-3.6.4.min.js"></script>
+    <!-- ----------------------------------------------------- -->
+    <script>
+        $(document).ready(function(){
+            //alert('jquery ok');
+        })
+        //id가 'x'인 요소를 찾아서 그 안에 "<h1>Hello JavaScript</h1>"을 넣으세요
+        window.onload=function(){
+            let obj1=document.getElementById('x');
+            //alert(obj1);
+            obj1.innerHTML='<h1>Hello JavaScript</h1>';
+            obj1.style.color='green';
+        }//onload()---------------
+
+        // jQuery(window).load(function(){
+        //     jQuery('#y').html("<h1>Hi jQuery</h1>")  
+
+        // })
+        //jquery 방법1]
+        $(document).ready(function(){
+            //dom이 준비되면 익명함수를 실행하란 의미
+            //$() : jQuery()함수를 축약 코드
+            $('#y').html('<h1>Hi jQuery</h1>').css('color','red');
+        })
+        //jquery 방법2]
+        $(function(){
+            //id가 z인 객체에 "<h2>Bye Bye jQuery</h2>"를 넣어보세요. 배경색은 노란색으로
+            $('#z').html("<h2>Bye Bye~~ jQuery</h2>")
+                    .css('background-color','yellow')
+                    .css('color','orange');
+        })
+
+    </script>
+</head>
+<body>
+    <h1>jQuery</h1>
+    <h2>자바스크립트 라이브러리</h2>
+    <!-- 1. 다운로드
+         2. CDN(Content Delivery Network) 방식
+    -->
+    <a href="http://jquery.com"><h3>다운로드</h3></a>
+    
+    <div id="x"></div>
+    <div id="y"></div>
+    <div id="z"></div>
+</body>
+</html>
