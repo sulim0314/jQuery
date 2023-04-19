@@ -20,10 +20,21 @@
 		}
 	</style> 
 <!-- jquery라이브러리 CDN방식으로 참조 ----------------------- -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <!-- ------------------------------------------------------- -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<!-- ------------------------------------------------------- -->
 <script type="text/javascript">
-
+	$(function(){
+		$('p:visible').hide();
+		//속성값을 알아내고자 할때- 정적인 속성: attr(), 동적인 속성(기능적) prop()
+		//attr('속성명') : getter
+		//attr('속성명','값'): setter
+		$('#menu span').on('click', function(){
+			let cls=$(this).attr('class');
+			//alert(cls)
+			$('p').hide();
+			$('p.'+cls).show(1000);
+		})
+	})
 </script>
 	       
   </head>
