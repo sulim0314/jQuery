@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery</title>
+
+<!-- jquery라이브러리 CDN방식으로 참조 ----------------------- -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<!-- ------------------------------------------------------- -->
+
+<script type="text/javascript">
+	
+		//[1] prepend버튼을 누르면 img요소 중 마지막 요소를 찾아서 #panel에 prepend
+		//[2] append버튼 누르면 처음 요소를 맨 뒤로 붙이기
+		//[3] #auto를 클릭하면 2초 간격으로 이미지를 (append|prepend)되도록 하세요
+		//    => setInterval(함수,밀리세컨드)  활용
+		//[4] stop 누르면 멈추기
+
+		$(()=>{
+			//[1]
+			$('#prepend').click(()=>{
+    			$('#panel').prepend($('#panel img:last-child'));
+  			});
+
+			//[2]
+			$('#append').click(()=>{
+    			$('#panel').append($('#panel img:first-child'));
+  			});
+
+			//[3]
+			var intervalId;
+ 			$('#auto').click(()=>{
+    			intervalId = setInterval(()=>{
+      				$('#panel').append($('#panel img:first-child'));
+    			}, 2000);
+  			});
+
+			//[4]
+            $('#stop').click(()=>{
+    			clearInterval(intervalId);
+  			});
+
+        }) // $() end--------------
+	
+	
+</script>
+</head>
+<body>
+<h1>jQuery를 이용한 이미지 순환</h1>
+<h2>append(), prepend()활용</h2>
+<div id="panel" align="center">
+	<img src="./images/a.png" width="200px" height="200px">
+	<img src="./images/b.png" width="200px" height="200px">
+	<img src="./images/c.png" width="200px" height="200px">
+	<img src="./images/d.png" width="200px" height="200px">
+	<img src="./images/e.png" width="200px" height="200px">
+</div>
+<p>
+<div align="center">
+	<button id="prepend">prepend</button>
+	<button id="append">append</button>
+	<button id="auto">auto moving</button>
+	<button id="stop">stop moving</button>
+</div>
+</body>
+</html>
+
+
+
+
