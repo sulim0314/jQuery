@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex12_dom탐색.html</title>
+    <!-- jquery라이브러리 CDN방식으로 참조 ----------------------- -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- ------------------------------------------------------- -->
+    <script>
+        $(()=>{
+        //DOM탐색 메소드
+		/*[1] $().find(): 선택된 엘리먼트 중 조건을 만족하는
+						  모든 자손 엘리먼트를 반환
+		  [2] $().children(): 선택된 엘리먼트 중 조건을 만족하는
+						  모든 자식 엘리먼트를 반환
+						  
+		  [3] next() : 이후의 형제 요소를 찾는다.
+		  [4] prev() : 이전의 형제 요소를 찾는다.
+		  [5] nextAll(): 이후의 모든 형제 요소를 찾는다.
+		  [6] prevAll(): 이전의 모든 형제 요소를 찾는다.
+		  [7] parent() : 부모 요소를 찾는다.
+		  [8] parents() : 조상 요소를 찾는다.
+		  [9] siblings() : 자신을 제외한 모든 형제 요소를 찾는다.
+		 */
+		 
+		 //[1]#panel자식 요소 중 div요소를 찾아서 폭을 80px,
+		 //    높이 80px, 배경색을 주세요.
+         $('#panel>div').css('width','80px')
+            .css('height','80px')
+            .css('background','orange')
+        
+        $('#panel').children('div').css('border','3px dashed tomato')    
+            //[2] #p1의 다음 형제 요소를 찾아서 글자크기 30pt로 주세요
+            $('#p1').next().css('font-size','30pt')
+
+            //[3] #p1의 부모 요소를 찾아서 글자스타일을 italic 으로 주세요
+            $('#p1').parent().css('font-style','italic')
+
+            //[4] #p1의 조상 요소를 찾아서 테두리를 10px inset blue로 주세요.
+		    //안쪽여백도 주세요 20px로
+            $('#p1').parents().css('border','10px inset blue')
+                    .css('padding','20px')
+        })//$() end----------
+    </script>
+</head>
+<body>
+    <h1>jQuery DOM 탐색</h1>
+	<div id="panel">div#panel
+		<div class="middle">
+			<p id="subp">div #subp</p>
+		</div>
+		<p>p</p>
+		<p>p</p>
+		<p id="p1">#p1</p>
+		<p>p</p>
+		<div id="sub">
+			<p class="middle">div#sub > p</p>
+		</div>
+	</div>
+
+	<div>
+		<p>another div p</p>
+	</div> 
+</body>
+</html>

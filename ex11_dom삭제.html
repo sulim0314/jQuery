@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex11_dom삭제.html</title>
+    <style>
+        body{
+            font-size: 9pt;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        ul li{
+            list-style: none;
+            border: 1px solid #ddd;
+            padding:10px;
+            margin:10px;
+            width:50%;
+        }
+        ul li.select{
+            background-color: bisque;
+        }
+
+    </style>
+
+    <!-- jquery라이브러리 CDN방식으로 참조 ----------------------- -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- ------------------------------------------------------- -->
+    <script>
+        //$(선택자).hasClass('클래스명') : 클래스명이 있으면 true,없으면 false
+        //$(선택자).addClass('클래스명') : 클래스명의 class를 추가
+        //$(선택자).removeClass('클래스명'): 클래스명의 class를 제거
+
+        //$(선택자).remove() : 선택한 요소를 삭제
+        $(()=>{
+            $('ul.menu>li').click((e)=>{
+                //alert(e.target)
+                if(!$(e.target).hasClass('select')){
+                    $(e.target).addClass('select');
+                }else{
+                    $(e.target).removeClass('select');
+                }
+            })
+            //#btDel을 클릭하면 선택한 li 요소들만 삭제하세요
+            $('#btDel').click(function(){
+                $('li.select').remove();
+            })
+
+        //[실습2] 삭제2 버튼을 누르면 li요소 중 인덱스가 짝수
+		//        요소인 목록만 삭제하세요
+
+            $('#btDel2').click(()=>{
+                //$('li:nth-child(2n)').remove();
+                $('li:even').remove();
+            })
+        //[실습3] 삭제3버튼 누르면 ul.menu의 전체 자식노드를
+		//   삭제합시다.
+          $('#btDel3').click(()=>{
+                //$('ul.menu *').remove()
+                $('ul.menu').children().remove();
+                //$('ul.menu').parent().remove();
+            })
+
+        })//$() end----
+    </script>
+</head>
+<body>
+    <h1>DOM 삭제</h1>
+    <button id="btDel">삭제</button>
+	<button id="btDel2">삭제2</button>
+	<button id="btDel3">삭제3</button>
+	<ul class="menu">
+		<li>menu1</li>
+		<li>menu2</li>
+		<li>menu3</li>
+		<li>menu4</li>
+		<li>menu5</li>
+	</ul>
+</body>
+</html>

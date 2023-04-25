@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex13_sample.html</title>
+    <style>
+        #panel{
+            width: 850px;
+            height: 420px;
+            border: 3px solid #ddd;
+            margin: auto;
+            text-align: center;
+        }
+        #navi{
+            width:850px;
+            text-align: center;
+            margin:auto;
+        }
+        button{
+            margin-top:8px;
+            padding:5px;
+        }
+    </style>
+
+    <!-- jquery라이브러리 CDN방식으로 참조 ----------------------- -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- ------------------------------------------------------- -->
+    <script>
+        let car=null;//img객체 참조값
+        let index=0;
+        let moving=null;
+        $(()=>{
+
+        })//$() end
+    </script>
+</head>
+<body>
+    <div id="panel">
+        <img src="./images/1.jpg" id="car">
+    </div>
+    <div id="navi">
+        <button id="play">play</button>
+        <button id="stop">stop</button>
+        <button id="prev">prev</button>
+        <button id="next">next</button>
+    </div>
+</body>
+</html>
