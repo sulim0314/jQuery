@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex15_event</title>
+    <!-- jquery라이브러리 CDN방식으로 참조 ----------------------- -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- ------------------------------------------------------- -->
+    <script>
+        $(()=>{
+            //#test1 링크를 클릭하면 "구글로 이동1" 글자색을 흰색으로, 배경색은 maroon으로 주세요
+            //[1] a태그의 링크를 클릭시 href에 지정된 url로 이동하는 것을 막는 방법 (1)
+            //event의 preventDefault()를 이용해서 막는다
+            $('#test1').click((e)=>{
+                $(e.target).css('backgroundColor','maroon')
+                            .css('color','white')
+                e.preventDefault();
+            })
+
+            //[2] a태그의 링크를 클릭시 href에 지정된 url로 이동하는 것을 막는 방법 (2)
+            $('#test2').on('click', (e)=>{
+                $(e.target).css('background-color','navy').css('color','yellow')
+                return false;
+            })
+
+        }) //$() end----
+    </script>
+</head>
+<body>
+    <div id="panel">
+        <h1><a href="http://www.google.com" id="test1">구글로 이동1</a></h1>
+
+        <h1><a href="http://www.google.com" id="test2">구글로 이동2</a></h1>
+    </div>
+</body>
+</html>

@@ -29,10 +29,44 @@
     <!-- ------------------------------------------------------- -->
     <script>
         let car=null;//img객체 참조값
-        let index=0;
+        let index=1;
         let moving=null;
         $(()=>{
+            $('#play').click(()=>{
+                //if(index > 1) index = 0;
 
+                moving = setInterval(()=>{ 
+                    if(index > 60) index = 1;
+                    $('#car').attr('src','./images/' + index + '.jpg');
+                    index++;
+                }, 100)
+            })
+
+            $('#stop').click(()=>{
+                if(moving != null){
+                    clearInterval(moving);
+                    moving = null;
+                }
+            })
+
+            $('#next').click(()=>{
+                //if(index > 1) index = 0;
+               // moving = setInterval(()=>{ 
+                    if(index > 60) index = 1;
+                    $('#car').attr('src','./images/' + index + '.jpg');
+                    index++;
+                //}, 100)
+
+            })
+
+            $('#prev').click(()=>{
+                if(index < 60) index = 60;
+                moving = setInterval(()=>{ 
+                    if(index <= 0) index = 60;
+                    $('#car').attr('src','./images/' + index + '.jpg');
+                    index--;
+                }, 100)
+            })
         })//$() end
     </script>
 </head>
